@@ -2,35 +2,64 @@
 <html lang="en">
 
 <head>
+    <title>Street Driver - Enjoy and have fun</title>
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" href="styles/style.css" />
-    <title>STREET DRIVER</title>
+    <link rel="stylesheet" href="./index.css" />
+    <meta name="author" content="RoLeg">
+
+    <!--
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Economica:wght@400;700&family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+-->
+
+    <!--<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/cookie-bar/cookiebar-latest.min.js?customize=1&thirdparty=1&always=1&noGeoIp=1"></script>
+    Mit diesem Verweis ist meine Cookies-Info erledigt-->
+
+    <style>
+
+    </style>
+
 </head>
 
+
 <body>
-    <div class="game-intro">
-        <img src="./images/streets/istockphoto-468569772-612x612.jpg" alt="" class="logo-img" />
-        <br />
-        <button id="start-button">StartGame</button>
-        <p>Use the arrows to control the car!</p>
-        <img src="./images/arrows.jpg" alt="" class="arrows-img" />
+    <div id="startScreen">
+        <div class="headline-container">
+            <h2 class="headline">STREET DRIVER</h2>
+        </div>
+
+        <div class="game-intro">
+            <img class="startPage" src="./images/streets/istockphoto-468569772-612x612.jpg" alt="" width="100%">
+
+
+            <div>
+                <img class="top-right" src="./images/Räder/Front-fender.jpg" alt="" width="100" height="100">
+                <button id="startBtn" class="top-right">StartGame</button>
+            </div>
+
+            <p>Use the arrows to control the car!</p>
+
+            <img src="./images/arrows.jpg" alt="" width="200" height="200" />
+
+        </div>
+    </div>
+
+    <div class="Score">
+    </div>
 
     </div>
 
-    <!--  
-    <div class="road">
-        <img src="./images/road.png" alt="" class="">
-    </div>
-  -->
 
-    <div id="game-board">
-        <canvas id="canvas" width="500" height="700"></canvas>
+    <canvas id="defaultCanvas" width="600" height="720"></canvas>
 
-    </div>
 
-    <script type="text/javascript" src="js/index.js"></script>
+
+    <script type="text/javascript" src="index.js"></script>
+
 </body>
 
 </html>
