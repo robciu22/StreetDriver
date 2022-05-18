@@ -11,6 +11,48 @@
     background-color: rgb(60, 255, 53);
 }
 
+#restartBtn:hover {
+    background-color: rgb(255, 154, 53);
+}
+
+.divButtons {
+    background-color: blueviolet;
+    height: 50px;
+    width: 50px;
+    /*position: absolute;
+    top: 0;*/
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+}
+
+#sound {
+    height: 50px;
+    width: 130px;
+    font-size: 35px;
+    background-color: blue;
+    color: rgb(225, 225, 255);
+    box-shadow: 4px 4px black;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    transition: all 1s ease-in-out;
+}
+
+#mute {
+    position: relative;
+    z-index: 10;
+    height: 50px;
+    width: 130px;
+    font-size: 28px;
+    border-radius: 20px;
+    background-color: blue;
+    color: rgb(225, 225, 255);
+    box-shadow: 4px 4px black;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    transition: all 1s ease-in-out;
+}
+
 .headcontainer {
     position: absolute;
     top: 0px;
