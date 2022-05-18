@@ -10,22 +10,22 @@ let roadImage = new Image();
 roadImage.src = "/images/streets/multilaneHighway.jpg"
 
 let carImage = new Image()
-carImage.src = "/images/cars/myCar.jpg"
+carImage.src = "images/cars/myCar.jpg"
 
 let carObstOne = new Image()
-carObstOne.src = "/images/cars/silverCar.jpeg"
+carObstOne.src = "images/cars/silverCar.jpeg"
 
 let carObstTwo = new Image()
-carObstTwo.src = "/images/cars/greyCar.jpeg"
+carObstTwo.src = "images/cars/greyCar.jpeg"
 
 let carObstThree = new Image()
-carObstThree.src = "/images/cars/yellowCar.jpg"
+carObstThree.src = "images/cars/yellowCar.jpg"
 
 let carObstFour = new Image()
-carObstFour.src = "/images/cars/cabrioCar.jpg"
+carObstFour.src = "images/cars/cabrioCar.jpg"
 
 let carObstCrashed = new Image()
-carObstCrashed.src = "/images/cars/crashedCars.jpg"
+carObstCrashed.src = "images/cars/crashedCars.jpg"
 
 let obstCarArr = [
     { img: carObstOne, x: Math.floor(Math.random() * (canvas.width - 100)), y: 0 },
