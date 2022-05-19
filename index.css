@@ -27,13 +27,19 @@
     background-image: url("./images/streets/roadClosed.jpg");
     background-size: cover;
     background-position: 100%;
-    display: flex;
+    display: block;
     justify-content: center;
     height: 100vh;
     /*padding: 20px 70px;*/
 }
 
 .crashedCars {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.restartButton {
     display: flex;
     justify-content: center;
     align-items: center;

@@ -1,7 +1,7 @@
 let canvas = document.querySelector('canvas')
 let ctx = canvas.getContext('2d')
-canvas.style.border = '2px solid black'
-canvas.style.background = 'blue'
+    //canvas.style.border = '2px solid black'
+    //canvas.style.background = 'blue'
 let gameOverPage = document.querySelector('#gameOverPage')
 
 
@@ -30,15 +30,26 @@ let carObstCrashed = new Image()
 carObstCrashed.src = "./images/cars/crashedCars.png"
 
 let obstCarArr = [
-    { img: carObstOne, x: Math.floor(Math.random() * (canvas.width - 100)), y: 0 },
-    { img: carObstTwo, x: Math.floor(Math.random() * (canvas.width - 150)), y: -200 },
-    { img: carObstThree, x: Math.floor(Math.random() * (canvas.width - 275)), y: -650 },
-    { img: carObstFour, x: Math.floor(Math.random() * (canvas.width - 400)), y: -1200 },
-    //{ img: carObstCrashed, x: Math.floor(Math.random() * canvas.width), y: 0 },
+    { img: carObstOne, x: 45, y: -300 },
+    { img: carObstTwo, x: 190, y: -300 },
+    { img: carObstThree, x: 300, y: -650 },
+    { img: carObstFour, x: 430, y: -1200 },
+    { img: carObstOne, x: 560, y: -100 },
+    { img: carObstTwo, x: 45, y: -400 },
+    { img: carObstThree, x: 190, y: -850 },
+    { img: carObstFour, x: 300, y: -1500 },
+    { img: carObstOne, x: 45, y: -1800 },
+    { img: carObstTwo, x: 190, y: -2400 },
+    { img: carObstThree, x: 300, y: -2800 },
+    { img: carObstFour, x: 430, y: -3500 },
+    { img: carObstOne, x: 560, y: -4000 },
+    { img: carObstTwo, x: 45, y: -4500 },
+    { img: carObstThree, x: 190, y: -5000 },
+    { img: carObstFour, x: 300, y: -6500 },
 ];
 
-const carWidth = 70
-const carHeight = 125
+const carWidth = 130
+const carHeight = 200
 
 let carX = 240 //X-Startposition from myCar
 let carY = 450 //Y-Startposition from myCar
@@ -63,8 +74,9 @@ let topToBottomThree = 0
 
 
 //Music
-let audio = new Audio("");
-audio.volume = 0.1
+let audioStart = new Audio("./audio/fire_funk_proud_music_preview.mp3");
+audioStart.volume = 0.1
+let audioGame = new Audio("./audio/the_big_crush_proud_music_preview.mp3")
 let sound = new Audio("");
 sound.volume = 0.2
 let gameOverSong = new Audio("./audio/mixkit-game-over-trombone-1940.wav");
@@ -103,23 +115,23 @@ function drawMyCar() {
 
 //obstacle cars ;-)
 function drawSilverCar() {
-    ctx.drawImage(carObstOne, 0, 0, 70, 125)
+    ctx.drawImage(carObstOne, 0, 0, 100, 150)
 }
 
 function drawGrayCar() {
-    ctx.drawImage(carObstTwo, 0, 200, 70, 125)
+    ctx.drawImage(carObstTwo, 0, 200, 100, 150)
 }
 
 function drawYellowCar() {
-    ctx.drawImage(carObstThree, 200, 0, 70, 125)
+    ctx.drawImage(carObstThree, 200, 0, 100, 150)
 }
 
 function drawCabrioCar() {
-    ctx.drawImage(carObstFour, 200, 200, 70, 125)
+    ctx.drawImage(carObstFour, 200, 200, 100, 150)
 }
 
 function drawCrashedCar() {
-    ctx.drawImage(carObstCrashed, 400, 0, 125, 100)
+    ctx.drawImage(carObstCrashed, 400, 0, 100, 150)
 }
 
 
@@ -127,7 +139,7 @@ function drawCrashedCar() {
 function drawScore() {
     ctx.font = "30px sans-serif"
     ctx.fillStyle = "white"
-    ctx.fillText(`Your Score : ${score}`, 80, 50)
+    ctx.fillText(`Your Score : ${score}`, 80, 100)
 }
 
 
@@ -136,22 +148,23 @@ function moving() {
     for (let i = 0; i < obstCarArr.length; i += 1) {
         let currentCar = obstCarArr[i]
 
-        ctx.drawImage(currentCar.img, currentCar.x, currentCar.y, 70, 125)
+        ctx.drawImage(currentCar.img, currentCar.x, currentCar.y, 130, 200)
         currentCar.y += 3
 
-        if (currentCar.y > canvas.height) {
-            currentCar.y = -200
+        if (currentCar.y > canvas.height && currentCar.y <= canvas.height + 3) {
+            currentCar.y = -6000
+            score += 1
         }
 
         //collision inside of for loop
         if (
             // checks if the bottom of the traffic car is touching the top of the player car
-            currentCar.y + 125 >= carY + 10 &&
+            currentCar.y + 200 >= carY + 30 &&
             //checks if the right side of the player car is more to the right than the traffic car
-            carX + 125 > currentCar.x &&
-            // checks if the left side of the player car is touching the left side of the traffic car
-            carX < currentCar.x + 70 &&
-            //checks if the bottom of the player car is touching the top of the traffic car
+            carX + carWidth - 60 > currentCar.x &&
+            // // checks if the left side of the player car is touching the left side of the traffic car
+            carX < currentCar.x + 90 &&
+            // //checks if the bottom of the player car is touching the top of the traffic car
             carY + carHeight - 10 > currentCar.y
         ) {
             console.log('working')
@@ -168,11 +181,13 @@ function startGame() {
 
     drawMyCar()
 
-
     moving()
 
-
     drawScore()
+
+    audioStart.play()
+
+
 
 
 
@@ -202,22 +217,31 @@ window.addEventListener('load', () => {
         startGame()
         console.log('start works')
     })
+
     restartBtn.addEventListener('click', () => {
-        console.log('click')
+
         startScreen.style.display = 'none'
         canvas.style.display = 'block'
         gameOverPage.style.display = 'none'
         isGameOver = false
 
         obstCarArr = [
-            { img: carObstOne, x: Math.floor(Math.random() * (canvas.width - 100)), y: 0 },
-            { img: carObstTwo, x: Math.floor(Math.random() * (canvas.width - 200)), y: -300 },
-            { img: carObstThree, x: Math.floor(Math.random() * (canvas.width - 300)), y: -650 },
-            { img: carObstFour, x: Math.floor(Math.random() * (canvas.width - 400)), y: -1200 },
-            { img: carObstOne, x: Math.floor(Math.random() * (canvas.width - 250)), y: 0 },
-            { img: carObstTwo, x: Math.floor(Math.random() * (canvas.width - 300)), y: -400 },
-            { img: carObstThree, x: Math.floor(Math.random() * (canvas.width - 450)), y: -850 },
-            { img: carObstFour, x: Math.floor(Math.random() * (canvas.width - 500)), y: -1500 },
+            { img: carObstOne, x: 45, y: 0 },
+            { img: carObstTwo, x: 190, y: -300 },
+            { img: carObstThree, x: 300, y: -650 },
+            { img: carObstFour, x: 430, y: -1200 },
+            { img: carObstOne, x: 560, y: 100 },
+            { img: carObstTwo, x: 45, y: -400 },
+            { img: carObstThree, x: 190, y: -850 },
+            { img: carObstFour, x: 300, y: -1500 },
+            { img: carObstOne, x: 45, y: -1800 },
+            { img: carObstTwo, x: 190, y: -2400 },
+            { img: carObstThree, x: 300, y: -2800 },
+            { img: carObstFour, x: 430, y: -3500 },
+            { img: carObstOne, x: 560, y: -4000 },
+            { img: carObstTwo, x: 45, y: -4500 },
+            { img: carObstThree, x: 190, y: -5000 },
+            { img: carObstFour, x: 300, y: -6500 },
         ];
 
         myCarPos //X- und Y-Startposition from myCar
