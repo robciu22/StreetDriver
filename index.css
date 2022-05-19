@@ -26,6 +26,12 @@
     justify-content: space-around;
 }
 
+.bgGameOver {
+    background-image: url("/images/background.jpg");
+    background-size: cover;
+    padding: 20px 70px;
+}
+
 #sound {
     height: 50px;
     width: 130px;
