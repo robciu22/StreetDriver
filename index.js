@@ -30,37 +30,37 @@ let carObstCrashed = new Image()
 carObstCrashed.src = "./images/cars/crashedCars.png"
 
 let obstCarArr = [
-    { img: carObstOne, x: 45, y: -300 },
-    { img: carObstTwo, x: 190, y: -400 },
+    { img: carObstOne, x: 50, y: -300 },
+    { img: carObstTwo, x: 185, y: -400 },
     { img: carObstThree, x: 300, y: -650 },
     { img: carObstFour, x: 430, y: -1200 },
     { img: carObstOne, x: 560, y: -100 },
-    { img: carObstTwo, x: 45, y: -600 },
-    { img: carObstThree, x: 190, y: -850 },
+    { img: carObstTwo, x: 50, y: -600 },
+    { img: carObstThree, x: 185, y: -850 },
     { img: carObstFour, x: 300, y: -900 },
-    { img: carObstOne, x: 45, y: -1000 },
-    { img: carObstTwo, x: 190, y: -1300 },
+    { img: carObstOne, x: 50, y: -1000 },
+    { img: carObstTwo, x: 185, y: -1300 },
     { img: carObstThree, x: 300, y: -1550 },
     { img: carObstFour, x: 430, y: -1800 },
-    { img: carObstOne, x: 45, y: -2250 },
-    { img: carObstTwo, x: 190, y: -2200 },
+    { img: carObstOne, x: 50, y: -2250 },
+    { img: carObstTwo, x: 185, y: -2200 },
     { img: carObstThree, x: 300, y: -2800 },
     { img: carObstFour, x: 430, y: -3000 },
     { img: carObstOne, x: 560, y: -3300 },
-    { img: carObstTwo, x: 45, y: -3500 },
-    { img: carObstThree, x: 190, y: -3750 },
+    { img: carObstTwo, x: 50, y: -3500 },
+    { img: carObstThree, x: 185, y: -3750 },
     { img: carObstFour, x: 300, y: -4000 },
     { img: carObstOne, x: 560, y: -4200 },
-    { img: carObstTwo, x: 45, y: -4500 },
-    { img: carObstThree, x: 190, y: -4700 },
+    { img: carObstTwo, x: 50, y: -4500 },
+    { img: carObstThree, x: 185, y: -4700 },
     { img: carObstFour, x: 300, y: -5000 },
     { img: carObstOne, x: 560, y: -5200 },
-    { img: carObstTwo, x: 45, y: -5300 },
-    { img: carObstThree, x: 190, y: -5850 },
+    { img: carObstTwo, x: 50, y: -5300 },
+    { img: carObstThree, x: 185, y: -5850 },
     { img: carObstFour, x: 300, y: -6000 },
     { img: carObstOne, x: 560, y: -6250 },
-    { img: carObstTwo, x: 45, y: -6450 },
-    { img: carObstThree, x: 190, y: -6600 },
+    { img: carObstTwo, x: 50, y: -6450 },
+    { img: carObstThree, x: 185, y: -6600 },
     { img: carObstFour, x: 300, y: -6850 },
 ];
 
@@ -90,13 +90,15 @@ let topToBottomThree = 0
 
 
 //Music
-let audioStart = new Audio("./audio/fire_funk_proud_music_preview.mp3");
+let audioStart = new Audio("./audio/blast-o-beat_(underscore_version)_proud_music_preview.mp3");
 audioStart.volume = 0.1
-let audioGame = new Audio("./audio/the_big_crush_proud_music_preview.mp3")
+let audioGame = new Audio("./audio/fire_funk_proud_music_preview.mp3")
 let sound = new Audio("");
-sound.volume = 0.2
+sound.volume = 0.05
 let gameOverSong = new Audio("./audio/mixkit-game-over-trombone-1940.wav");
 gameOverSong.volume = 0.1
+
+audioStart.play()
 
 //  Buttons
 let startBtn = document.querySelector('#startBtn')
@@ -128,27 +130,6 @@ function drawMyCar() {
         }
     }
 }
-
-// //obstacle cars ;-)
-// function drawSilverCar() {
-//     ctx.drawImage(carObstOne, 0, 0, 100, 150)
-// }
-
-// function drawGrayCar() {
-//     ctx.drawImage(carObstTwo, 0, 200, 100, 150)
-// }
-
-// function drawYellowCar() {
-//     ctx.drawImage(carObstThree, 200, 0, 100, 150)
-// }
-
-// function drawCabrioCar() {
-//     ctx.drawImage(carObstFour, 200, 200, 100, 150)
-// }
-
-// function drawCrashedCar() {
-//     ctx.drawImage(carObstCrashed, 400, 0, 100, 150)
-// }
 
 
 //Scoreboard
@@ -201,7 +182,8 @@ function startGame() {
 
     drawScore()
 
-    audioStart.play()
+    audioStart.pause()
+    audioGame.play()
 
 
     if (isGameOver) {
@@ -241,37 +223,37 @@ window.addEventListener('load', () => {
         isGameOver = false
 
         obstCarArr = [
-            { img: carObstOne, x: 45, y: -300 },
-            { img: carObstTwo, x: 190, y: -400 },
+            { img: carObstOne, x: 50, y: -300 },
+            { img: carObstTwo, x: 185, y: -400 },
             { img: carObstThree, x: 300, y: -650 },
             { img: carObstFour, x: 430, y: -1200 },
             { img: carObstOne, x: 560, y: -100 },
-            { img: carObstTwo, x: 45, y: -600 },
-            { img: carObstThree, x: 190, y: -850 },
+            { img: carObstTwo, x: 50, y: -600 },
+            { img: carObstThree, x: 185, y: -850 },
             { img: carObstFour, x: 300, y: -900 },
-            { img: carObstOne, x: 45, y: -1000 },
-            { img: carObstTwo, x: 190, y: -1300 },
+            { img: carObstOne, x: 50, y: -1000 },
+            { img: carObstTwo, x: 185, y: -1300 },
             { img: carObstThree, x: 300, y: -1550 },
             { img: carObstFour, x: 430, y: -1800 },
-            { img: carObstOne, x: 45, y: -2250 },
-            { img: carObstTwo, x: 190, y: -2200 },
+            { img: carObstOne, x: 50, y: -2250 },
+            { img: carObstTwo, x: 185, y: -2200 },
             { img: carObstThree, x: 300, y: -2800 },
             { img: carObstFour, x: 430, y: -3000 },
             { img: carObstOne, x: 560, y: -3300 },
-            { img: carObstTwo, x: 45, y: -3500 },
-            { img: carObstThree, x: 190, y: -3750 },
+            { img: carObstTwo, x: 50, y: -3500 },
+            { img: carObstThree, x: 185, y: -3750 },
             { img: carObstFour, x: 300, y: -4000 },
             { img: carObstOne, x: 560, y: -4200 },
-            { img: carObstTwo, x: 45, y: -4500 },
-            { img: carObstThree, x: 190, y: -4700 },
+            { img: carObstTwo, x: 50, y: -4500 },
+            { img: carObstThree, x: 185, y: -4700 },
             { img: carObstFour, x: 300, y: -5000 },
             { img: carObstOne, x: 560, y: -5200 },
-            { img: carObstTwo, x: 45, y: -5300 },
-            { img: carObstThree, x: 190, y: -5850 },
+            { img: carObstTwo, x: 50, y: -5300 },
+            { img: carObstThree, x: 185, y: -5850 },
             { img: carObstFour, x: 300, y: -6000 },
             { img: carObstOne, x: 560, y: -6250 },
-            { img: carObstTwo, x: 45, y: -6450 },
-            { img: carObstThree, x: 190, y: -6600 },
+            { img: carObstTwo, x: 50, y: -6450 },
+            { img: carObstThree, x: 185, y: -6600 },
             { img: carObstFour, x: 300, y: -6850 },
         ];
 
