@@ -148,7 +148,7 @@ function moving() {
             // checks if the bottom of the traffic car is touching the top of the player car
             currentCar.y + 125 >= carY + 10 &&
             //checks if the right side of the player car is more to the right than the traffic car
-            carX + 120 > currentCar.x &&
+            carX + 125 > currentCar.x &&
             // checks if the left side of the player car is touching the left side of the traffic car
             carX < currentCar.x + 70 &&
             //checks if the bottom of the player car is touching the top of the traffic car
