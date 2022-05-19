@@ -11,7 +11,7 @@
     background-color: rgb(60, 255, 53);
 }
 
-#restartBtn:hover {
+#restartBtn2:hover {
     background-color: rgb(255, 154, 53);
 }
 
@@ -30,7 +30,6 @@
     display: block;
     justify-content: center;
     height: 100vh;
-    /*padding: 20px 70px;*/
 }
 
 .crashedCars {
@@ -43,6 +42,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+    padding-top: 200px;
+    padding-right: 65px;
+}
+
+#restartBtn2 {
+    height: 30px;
+    width: 60px;
 }
 
 #sound {

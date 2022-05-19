@@ -6,7 +6,7 @@ let gameOverPage = document.querySelector('#gameOverPage')
 
 
 
-let startScreen = document.querySelector('#startScreen')
+let startScreen = document.querySelector('#splashScreen')
 
 let roadImage = new Image();
 roadImage.src = "./images/streets/multilaneHighway.jpg"
@@ -84,7 +84,7 @@ gameOverSong.volume = 0.1
 
 //  Buttons
 let startBtn = document.querySelector('#startBtn')
-let restartBtn = document.querySelector("#restartBtn");
+let restartBtn = document.querySelector("#restartBtn2");
 let soundBtn = document.querySelector("#soundBtn");
 let muteBtn = document.querySelector("#muteBtn");
 
@@ -188,13 +188,12 @@ function startGame() {
     audioStart.play()
 
 
-
-
-
     if (isGameOver) {
         cancelAnimationFrame(intervalId)
         score = 0
         carSpeedValue = 3
+        audioStart.pause()
+        audioGame.pause()
         gameOverSong.play()
         canvas.style.display = 'none'
         gameOverPage.style.display = 'block'
@@ -219,7 +218,7 @@ window.addEventListener('load', () => {
     })
 
     restartBtn.addEventListener('click', () => {
-
+        console.log('restart working')
         startScreen.style.display = 'none'
         canvas.style.display = 'block'
         gameOverPage.style.display = 'none'
@@ -230,7 +229,7 @@ window.addEventListener('load', () => {
             { img: carObstTwo, x: 190, y: -300 },
             { img: carObstThree, x: 300, y: -650 },
             { img: carObstFour, x: 430, y: -1200 },
-            { img: carObstOne, x: 560, y: 100 },
+            { img: carObstOne, x: 560, y: -100 },
             { img: carObstTwo, x: 45, y: -400 },
             { img: carObstThree, x: 190, y: -850 },
             { img: carObstFour, x: 300, y: -1500 },
@@ -244,10 +243,11 @@ window.addEventListener('load', () => {
             { img: carObstFour, x: 300, y: -6500 },
         ];
 
+
         myCarPos //X- und Y-Startposition from myCar
 
         startGame()
-        console.log('restart working')
+
     })
 })
 
