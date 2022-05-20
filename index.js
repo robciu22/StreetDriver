@@ -7,6 +7,7 @@ let gameOverPage = document.querySelector('#gameOverPage')
 
 
 let startScreen = document.querySelector('#splashScreen')
+let headlineDiv = document.querySelector('.headline-container')
 
 let roadImage = new Image();
 roadImage.src = "./images/streets/multilaneHighway.jpg"
@@ -188,6 +189,7 @@ function startGame() {
 
     if (isGameOver) {
         cancelAnimationFrame(intervalId)
+        startScreen.style.display = 'none'
         score = 0
         carSpeedValue = 3
         audioStart.pause()
@@ -208,6 +210,7 @@ window.addEventListener('load', () => {
     startBtn.addEventListener('click', () => {
         startScreen.style.display = 'none'
         canvas.style.display = 'block'
+        headlineDiv.style.display = 'block'
 
         myCarPos //X- und Y-Startposition from myCar
 

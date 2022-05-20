@@ -52,6 +52,15 @@
     width: 80px;
 }
 
+.canvasDiv {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
 #sound {
     height: 50px;
     width: 130px;
